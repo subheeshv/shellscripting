@@ -1,3 +1,4 @@
 #!\bin\bash
 #/n indicates new line
-line1 /n line2
+#-e used to enable escape sequence
+line1/nline2
