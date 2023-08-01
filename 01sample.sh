@@ -6,3 +6,6 @@ echo welcome to shell scripting
 
 #This is the way it execute bash file
 #bash scriptname.sh
+echo line1
+
+echo line2
