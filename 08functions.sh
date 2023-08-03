@@ -10,7 +10,9 @@ hai
 stat() {
     echo "number of sessions opened are $(who| wc -l)"
     echo "Todays date is $(date +%F)"
-    echo "average CPU utilisation in last fibe minutes $(uptime | awk -F : '{Print $NF}' | awk -F , '{Print $2}')"
+    echo "average CPU utilisation in last five minutes $(uptime | awk -F : '{print $NF}' | awk -F , '{print $2}')"
+
+    hai
 }
 
 stat
