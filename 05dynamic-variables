@@ -1,0 +1,6 @@
+#!/bin/bash
+
+DATE=$(date +%F)
+SESSION_COUNT=$(who | wc -l)
+echo -e "\e[32m Todays date is $DATE \e[0m"
+echo -e "\e[33m Total number of active sessions are $SESSION_COUNT \e[0m"
