@@ -15,5 +15,5 @@ case $ACTION in
         echo -e "\e[34m Restarting Payment service \e[0m"
         exit 2
         ;;
-
+    *)
 esac
