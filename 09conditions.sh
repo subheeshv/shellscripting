@@ -16,4 +16,8 @@ case $ACTION in
         exit 2
         ;;
     *)
+        echo -e "\e[35m Valid Options are start or stop or restart \e[0m"
+        echo -e "\e[33m Example Usage \e[0m :\n \t bash scriptName stop"
+        exit 3
+        ;; 
 esac
