@@ -7,4 +7,5 @@ a=10
 b=10
 echo $a
 COMMENT
+b=20
 echo $b
