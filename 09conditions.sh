@@ -7,7 +7,7 @@ case $ACTION in
         echo -e "\e[32m Starting payement service \e[0m"
         exit 0
         ;;
-    Stop)
+    stop)
         echo -e "\e[33m Stopping payment service \e[0m"
         exit 1
         ;;
