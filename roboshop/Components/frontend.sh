@@ -4,7 +4,7 @@ set -e
 
 USER_ID=$(id -u)
 
-if [ $USERID -ne 0 " ];then
+if [ $USERID -ne 0 ];then
     echo -e "\e[31m Script is expected to execute with sudo user \e[0m \n \t example:sudo bash wrapper.sh frontend"
     exit 1
 fi
