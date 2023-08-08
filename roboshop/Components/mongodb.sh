@@ -52,7 +52,7 @@ mongo < catalogue.js &>> ${LOGFILE}
 mongo < users.js &>> ${LOGFILE}
 stat $?
 
-cho -e "\e[35m ${COMPONENT} Installation Is Completed \e[0m \n"
+echo -e "\e[35m ${COMPONENT} Installation Is Completed \e[0m \n"
 
 
 
