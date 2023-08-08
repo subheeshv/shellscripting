@@ -4,7 +4,7 @@ USER_ID=$(id -u)
 COMPONENT=frontend
 LOGFILE="/tmp/$COMPONENT.log"
 
-if [ $USERID -ne 0 ];then
+if [ $USER_ID -ne 0 ];then
     echo -e "\e[31m Script is expected to execute with sudo user \e[0m \n \t example:sudo bash wrapper.sh frontend"
     exit 1
 fi
