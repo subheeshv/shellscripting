@@ -32,7 +32,7 @@ echo -n "configuring ${COMPONENT}visibility :"
 sed -ie 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 stat $?
 
-echo -n "starting ${COMPONENT}" : "
+echo -n "starting ${COMPONENT} : "
 systemctl enable mongod &>> ${LOGFILE}
 systemctl restart mongod &>> ${LOGFILE}
 stat $?
