@@ -28,7 +28,7 @@ echo -n "installing ${COMPONENT} :"
 yum install mongodb-org -y &>> ${LOGFILE}
 stat $?
 
-echo -n "configuring ${COMPONENT}" visibility :"
+echo -n "configuring ${COMPONENT}visibility :"
 sed -ie 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
 stat $?
 
