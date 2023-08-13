@@ -37,7 +37,7 @@ DOWNLOAD_AND_EXTRACT() {
     unzip -o /tmp/${COMPONENT}.zip &>> ${LOGFILE}
     stat $?
 
-    echo -n "Changing the ownership:"
+    echo -n "Changing the ownership : "
     mv ${COMPONENT}.main ${COMPONENT}
     chown -R ${APPUSER}:${APPUSER} /home/${APPUSER}/${COMPONENT}/
     stat $?
@@ -61,7 +61,7 @@ NODE_JS() {
     echo -n "configuring ${COMPONENT} repo : "
     curl --silent --location https://rpm.nodesource.com/setup_16.x | bash - &>> ${LOGFILE}
     stat $?
-    
+
     echo -n "Installing nodejs : "
     yum install nodejs -y &>> ${LOGFILE}
     stat $?
