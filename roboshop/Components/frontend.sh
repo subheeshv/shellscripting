@@ -17,12 +17,11 @@ stat() {
     fi
 }
 
-echo -e "\e[35m Configuring ${COMPONENT}.....! \e[0m \n"
+echo -e "\e[35m Configuring ${COMPONENT} ......! \e[0m \n"
 
-echo -n "installing ${COMPONENT} :"
-yum install nginx -y &>> ${LOGFILE}
+echo -n "Installing Nginx :"
+yum install nginx -y     &>>  ${LOGFILE}
 stat $?
-
 
 echo -n "Starting Nginx:" 
 systemctl enable nginx   &>>  ${LOGFILE}
