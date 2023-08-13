@@ -44,8 +44,8 @@ DOWNLOAD_AND_EXTRACT() {
 }
 
 CONGIF_SVC() {
-    echo -n "Configuring ${COMPONENT} system file"
-    sed -i -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal' /home/$APPUSER/${COMPONENT}/systemd.service
+    echo -n "Configuring ${COMPONENT} system file : "
+    sed -i -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' /home/$APPUSER/${COMPONENT}/systemd.service
     mv /home/$APPUSER/${COMPONENT}/systemd.service /etc/systemd/system/${COMPONENT}.service
 
     echo -n "starting ${COMPONENT} service : "
