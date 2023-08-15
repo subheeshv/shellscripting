@@ -4,7 +4,7 @@ USER_ID=$(id -u)
 COMPONENT=redis
 LOGFILE=/tmp/${COMPONENT}.log
 
-if [ $USER_ID -ne 0] ; then
+if [ $USER_ID -ne 0 ] ; then
     echo -e "\e[31m Script is executed with the root user or sudo previlege \e[0m \n\t example \n\t\t sudo bash wrapper.sh frontend"
     exit 1
 fi
