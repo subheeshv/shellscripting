@@ -20,7 +20,7 @@ systemctl start mysqld &>> ${LOGFILE}
 stat $?
 
 echo -n "Extracting default ${COMPONENT} root password : "
-DEFAULT_ROOT_PASSWORD=$(grep 'temporory password' /var/log/mysqld.log | awk -F "" '{print $NF}')
+DEFAULT_ROOT_PASSWORD=$(grep 'temporary password' /var/log/mysqld.log | awk -F " " '{print $NF}')
 stat $?
 
 echo "show databases;" | mysql -uroot -pRoboShop@1 &>> ${LOGFILE}
