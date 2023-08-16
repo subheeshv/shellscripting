@@ -77,3 +77,27 @@ NODE_JS() {
 
     CONGIF_SVC
 }
+
+MVN_PACKAGE() {
+    echo -n "Generating ${COMPONENT} artifatcs : "
+    cd /home/${APPUSER}/${COMPONENT}
+    mvn clean package &>> ${LOGFILE}
+    mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar
+    stat $?
+}
+
+JAVA() {
+    echo -e "\e[35m Configuring ${COMPONENT} ..... \e[0m"
+
+    echo -n "Installing ${COMPONENT} : "
+    yum install maven -y &>> ${LOGFILE}
+    stat $?
+
+    CREATE_USER
+
+    DOWNLOAD_AND_EXTRACT
+
+    MVN_PACKAGE
+
+    CONGIF_SVC
+}
