@@ -25,8 +25,8 @@ stat $?
 
 echo "show databases;" | mysql -uroot -pRoboShop@1 &>> ${LOGFILE}
 if [ $? -ne 0 ] ; then
-    echo -n "performing root password reset"
-    echo "ALTER USER 'root'@'local host' IDENTIFIED BY 'RoboShop@1'" | mysql --connect-expired-password  -uroot -p$DEFAULT_ROOT_PASSWORD &>> ${LOGFILE}
+    echo -n "performing root password reset : "
+    echo "ALTER USER 'root'@'localhost' IDENTIFIED BY 'RoboShop@1'" | mysql --connect-expired-password  -uroot -p$DEFAULT_ROOT_PASSWORD &>> ${LOGFILE}
     stat $?
 fi
 
