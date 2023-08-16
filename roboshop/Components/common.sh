@@ -51,7 +51,7 @@ CONGIF_SVC() {
     echo -n "starting ${COMPONENT} service : "
     systemctl daemon-reload &>> ${LOGFILE}
     systemctl enable ${component} &>> ${LOGFILE}
-    systemctl start ${COMPONENT} &>> ${LOGFILE}
+    systemctl restart ${COMPONENT} &>> ${LOGFILE}
     stat $?
 }
 
