@@ -101,3 +101,29 @@ JAVA() {
 
     CONGIF_SVC
 }
+
+PYTHON() {
+     echo -e "\e[35m Configuring ${COMPONENT} ..... \e[0m"
+
+     echo -n "Installing python : "
+     yum install python36 gcc python3-devel -y &>> {LOGFILE}
+     stat $?
+
+    CREATE_USER
+
+    DOWNLOAD_AND_EXTRACT
+
+    echo -n "Generating the artifacts : "
+    cd /home/${APPUSER}/${COMPONENT}
+    pip3 install -r requirements.txt &>> {LOGFILE}
+    stat $?
+
+    USERID=$(id -u roboshop)
+    GROUPID=$(id -g roboshop)
+
+    echo -n "updating userid and groupid in ${COMPONENT}.ini file : "
+    sed -i -e "/^uid/ c uid=${USERID}" -e "/^gid/ c gid=${GROUPID}" /home/${APPUSER}/${COMPONENT}/${COMPONENT}.ini
+    stat $?
+
+    CONGIF_SVC
+}
