@@ -1,6 +1,6 @@
 {
-    "comment": "optional comment about the changes in this change batch request",
-    "changes": [
+    "Comment": "optional comment about the changes in this change batch request",
+    "Changes": [
         {
             "Actoion": "UPSERT",
             "Resourcerecordset": {
