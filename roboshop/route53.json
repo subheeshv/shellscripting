@@ -2,8 +2,8 @@
     "Comment": "optional comment about the changes in this change batch request",
     "Changes": [
         {
-            "Actoion": "UPSERT",
-            "Resourcerecordset": {
+            "Action": "UPSERT",
+            "ResourceRecordSet": {
                 "name": "COMPONENT.roboshop.internal",
                 "Type": "A",
                 "TTL": 10,
