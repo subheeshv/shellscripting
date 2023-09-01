@@ -11,12 +11,12 @@ if [ -z $1 ] || [ -z $2 ] ; then
     exit 1
 fi
 
-AMI_ID="$(aws ec2 describe-images --filters "Name=name,Values=DevOps-LabImage-CentOS7"| jq ".Images[].ImageId" | sed -e 's/"//g')"
+AMI_ID="$(aws ec2 describe-images --filters "Name=name,Values= mydevops_labimage_centos7"| jq ".Images[].ImageId" | sed -e 's/"//g')"
 SG_ID="$(aws ec2 describe-security-groups --filters Name=group-name,Values=learn_test_group | jq '.SecurityGroups[].GroupId' | sed -e 's/"//g')"
 
 create_ec2() {
     echo -e "****** Creating \e[35m ${COMPONENT} \e[0m Server Is In Progress ************** "
-    PRIVATEIP=$(aws ec2 run-instances --image-id ${AMI_ID} --instance-type ${INSTANCE_TYPE} --security-group-ids ${SG_ID} --tag-specifications "ResourceType=instance,Tags=[{key=name,value=${COMPONENT}-${ENV}}]" | jq.'instances[].PrivateIpAddress' | sed -e 's/""//g')
+    PRIVATEIP=$(aws ec2 run-instances --image-id ${AMI_ID} --instance-type ${INSTANCE_TYPE} --security-group-ids ${SG_ID} --tag-specifications "ResourceType=instance,Tags=[{key=name,value=${COMPONENT}-${ENV}}]" | jq '.instances[].PrivateIpAddress' | sed -e 's/""//g')
 
     echo -e "Private IP Address of the $COMPONENT-${ENV} is $PRIVATEIP \n\n"
     echo -e "Creating DNS Record of ${COMPONENT}: "
