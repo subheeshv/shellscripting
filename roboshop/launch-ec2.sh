@@ -16,7 +16,7 @@ SG_ID="$(aws ec2 describe-security-groups --filters Name=group-name,Values=learn
 
 create_ec2() {
     echo -e "****** Creating \e[35m ${COMPONENT} \e[0m Server Is In Progress ************** "
-    PRIVATEIP=$(aws ec2 run-instances --image-id ${AMI_ID} --instance-type ${INSTANCE_TYPE} --security-group-ids ${SG_ID} --tag-specifications "ResourceType=instance,Tags=[{key=name,value=${COMPONENT}-${ENV}}]" | jq '.instances[].PrivateIpAddress' | sed -e 's/""//g')
+    PRIVATEIP=$(aws ec2 run-instances --image-id ${AMI_ID} --instance-type ${INSTANCE_TYPE} --security-group-ids ${SG_ID} --tag-specifications "ResourceType=instance,Tags=[{key=Name,Value=${COMPONENT}-${ENV}}]" | jq '.instances[].PrivateIpAddress' | sed -e 's/""//g')
 
     echo -e "Private IP Address of the $COMPONENT-${ENV} is $PRIVATEIP \n\n"
     echo -e "Creating DNS Record of ${COMPONENT}: "
