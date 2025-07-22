@@ -16,7 +16,7 @@ Stat() {
 dnf install fontconfig java-17-openjdk-devel wget -y &> $LOGFILE
 Stat $?
 
-wget --no-check-certificate -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo &>> $LOGFILE
+curl -kL https://pkg.jenkins.io/redhat-stable/jenkins.repo -o /etc/yum.repos.d/jenkins.repo&>> $LOGFILE
 Stat $?
 
 rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key &>> $LOGFILE
