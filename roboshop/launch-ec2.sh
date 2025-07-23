@@ -2,7 +2,7 @@
 
 COMPONENT=$1
 ENV=$2
-HOSTZONEID="Z060816411WU4XGNP8B8T"
+HOSTZONEID="Z08663422ENLYAQ21NXYT"
 INSTANCE_TYPE="t2.micro"
 
 if [ -z $1 ] || [ -z $2 ] ; then
@@ -11,8 +11,8 @@ if [ -z $1 ] || [ -z $2 ] ; then
     exit 1
 fi
 
-AMI_ID="$(aws ec2 describe-images --filters "Name=name,Values= mydevops_labimage_centos7"| jq ".Images[].ImageId" | sed -e 's/"//g')"
-SG_ID="$(aws ec2 describe-security-groups --filters Name=group-name,Values=learn_test_group | jq '.SecurityGroups[].GroupId' | sed -e 's/"//g')"
+AMI_ID="$(aws ec2 describe-images --filters "Name=name,Values= DevOps-LabImage-rhel9"| jq ".Images[].ImageId" | sed -e 's/"//g')"
+SG_ID="$(aws ec2 describe-security-groups --filters Name=group-name,Values=default | jq '.SecurityGroups[].GroupId' | sed -e 's/"//g')"
 
 create_ec2() {
     echo -e "****** Creating \e[35m ${COMPONENT} \e[0m Server Is In Progress ************** "
