@@ -11,7 +11,7 @@ if [ -z $1 ] || [ -z $2 ] ; then
     exit 1
 fi
 
-AMI_ID="$(aws ec2 describe-images --owners 355449129696 --filters "Name=name,Values=DevOps-LabImage-rhel9"| jq ".Images[].ImageId" | sed -e 's/"//g')"
+AMI_ID="$(aws ec2 describe-images --filters "Name=name,Values=mydevops-labimage-rhel9"| jq ".Images[].ImageId" | sed -e 's/"//g')"
 SG_ID="$(aws ec2 describe-security-groups --filters Name=group-name,Values=default | jq '.SecurityGroups[].GroupId' | sed -e 's/"//g')"
 
 create_ec2() {
