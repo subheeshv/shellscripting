@@ -4,7 +4,7 @@
         {
             "Action": "UPSERT",
             "ResourceRecordSet": {
-                "Name": "COMPONENT.roboshop.internal",
+                "Name": "COMPONENT.mydevops.internal",
                 "Type": "A",
                 "TTL": 10,
                 "ResourceRecords": [{"Value": "IPADDRESS"}]
